@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 58% 3%;
+    --foreground: 150 15% 96%;
+    --card: 140 40% 5%;
+    --card-foreground: 150 15% 96%;
+    --popover: 140 40% 5%;
+    --popover-foreground: 150 15% 96%;
+    --primary: 149 63% 17%;
+    --primary-foreground: 150 15% 96%;
+    --secondary: 149 50% 12%;
+    --secondary-foreground: 150 15% 96%;
+    --muted: 149 50% 12%;
+    --muted-foreground: 150 10% 60%;
+    --accent: 40 64% 46%;
+    --accent-foreground: 140 58% 3%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 150 15% 96%;
+    --border: 149 63% 10%;
+    --input: 149 63% 10%;
+    --ring: 40 64% 46%;
+    --chart-1: 149 63% 17%;
+    --chart-2: 40 64% 46%;
+    --chart-3: 150 15% 96%;
+    --chart-4: 149 50% 12%;
+    --chart-5: 150 10% 60%;
+  }
+
+  .dark {
+    --background: 140 58% 3%;
+    --foreground: 150 15% 96%;
+    --card: 140 40% 5%;
+    --card-foreground: 150 15% 96%;
+    --popover: 140 40% 5%;
+    --popover-foreground: 150 15% 96%;
+    --primary: 149 63% 17%;
+    --primary-foreground: 150 15% 96%;
+    --secondary: 149 50% 12%;
+    --secondary-foreground: 150 15% 96%;
+    --muted: 149 50% 12%;
+    --muted-foreground: 150 10% 60%;
+    --accent: 40 64% 46%;
+    --accent-foreground: 140 58% 3%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 150 15% 96%;
+    --border: 149 63% 10%;
+    --input: 149 63% 10%;
+    --ring: 40 64% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+
+  .wave-bg {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  
+  .wave-bg::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 200%;
+    z-index: 0;
+    background: 
+      linear-gradient(to top, hsla(140, 50%, 95%, 0.15) 0%, hsla(140, 50%, 95%, 0.05) 50%, transparent 70%),
+      radial-gradient(ellipse at 50% -50%, hsla(140, 50%, 95%, 0.3) 0%, transparent 100%);
+    background-size: 100% 50%;
+    animation: wave 20s linear infinite;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(-50%) rotate(0deg) scale(1.2, 1);
+  }
+  100% {
+    transform: translateY(0%) rotate(360deg) scale(1.2, 1);
+  }
+}
+
+.glow-on-hover {
+  @apply transition-all duration-300;
+}
+
+.glow-on-hover:hover {
+  @apply shadow-[0_0_15px_2px_hsl(var(--accent)/0.4)];
+}
